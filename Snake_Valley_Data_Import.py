@@ -135,7 +135,7 @@ def appendomatic(infile,existingfile):
         # get header names and apply to the pandas dataframe
         f[str(obj['Body_xle']['Ch2_data_header']['Identification']).title()] = f['ch2']
         unit = str(obj['Body_xle']['Ch1_data_header']['Unit']).lower()
-        if unit == "feet":
+    if levelunit == "feet" or levelunit == "ft":
             f[str(obj['Body_xle']['Ch1_data_header']['Identification']).title()] = f['ch1']
         elif unit == "kpa":
             f[str(obj['Body_xle']['Ch1_data_header']['Identification']).title()] = f['ch1']*0.33456
@@ -279,7 +279,7 @@ def new_xle_imp(infile):
         f[str(obj['Body_xle']['Ch2_data_header']['Identification']).title()] = f['ch2']
         print "Unknown Units"
     levelunit = str(obj['Body_xle']['Ch1_data_header']['Unit']).lower()
-    if levelunit == "feet":
+    if levelunit == "feet" or levelunit == "ft":
         f[str(obj['Body_xle']['Ch1_data_header']['Identification']).title()] = f['ch1']
     elif levelunit == "kpa":
         f[str(obj['Body_xle']['Ch1_data_header']['Identification']).title()] = f['ch1']*0.33456
